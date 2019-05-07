@@ -35,7 +35,7 @@ public class ClienteBean {
 		email=e;
 	}
 	
-	public String getPassword() {return password;}
+	public boolean testPassword(String p) {return password.equals(p);}
 	public void setPassword(String p) throws IrregularFormatException {
 		if(p.equals(password)) throw new IrregularFormatException("la password deve essere diversa dalla vecchia!");
 		if(p.length()<8) throw new IrregularFormatException("password troppo corta!");

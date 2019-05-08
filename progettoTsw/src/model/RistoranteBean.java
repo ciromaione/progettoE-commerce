@@ -15,7 +15,7 @@ public class RistoranteBean {
 	
 	public RistoranteBean(long idr,String n,String ind,String e,String p,String tel,String ap,String ch) throws IrregularFormatException {
 		if(!Pattern.matches("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,4}",e))
-			throw new IrregularFormatException("formato emali non valido!");
+			throw new IrregularFormatException("formato email non valido!");
 		if(p.length()<8) throw new IrregularFormatException("password troppo corta!");
 		if(!Pattern.matches("[0-9]{10}",tel)) throw new IrregularFormatException("numero di telefono non valido!");
 		if(!Pattern.matches("([01][0-9]|2[0-3]):[0-5][0-9]",ap) || !Pattern.matches("([01][0-9]|2[0-3]):[0-5][0-9]",ch))
@@ -41,7 +41,7 @@ public class RistoranteBean {
 	public String getEmail() {return email;}
 	public void setEmail(String e) throws IrregularFormatException {
 		if(!Pattern.matches("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,4}",e))
-			throw new IrregularFormatException("formato emali non valido!");
+			throw new IrregularFormatException("formato email non valido!");
 		email=e;
 	}
 	

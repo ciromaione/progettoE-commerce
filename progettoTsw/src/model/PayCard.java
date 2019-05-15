@@ -1,12 +1,10 @@
 package model;
 
-import java.util.regex.Pattern;
 
-import exceptions.*;
 
 public class PayCard {
 	
-	private String numero,scadenza;
+	/*private String numero,scadenza;
 	private int cvv;
 	
 	public PayCard(String n,String sc,int c) throws IrregularFormatException {
@@ -22,5 +20,5 @@ public class PayCard {
 	public String getNumero() {return numero;}
 	public String getScadenza() {return scadenza;}
 	public int getCvv() {return cvv;}
-
+*/
 }

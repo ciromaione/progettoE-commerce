@@ -1,11 +1,8 @@
 package model;
 
-import exceptions.*;
-import java.util.regex.Pattern;
-
 public class ClienteBean {
 
-	private String nome,email,password,indirizzo,telefono;
+	/*private String nome,email,password,indirizzo,telefono;
 	private PayCard carta;
 	
 	public ClienteBean(String n,String e,String p,String in,String tel,PayCard c) throws IrregularFormatException {
@@ -55,6 +52,6 @@ public class ClienteBean {
 	
 	public PayCard getCarta() {return carta;}
 	public void setCarta(PayCard c) {carta=c;}
-	
+	*/
 	
 }

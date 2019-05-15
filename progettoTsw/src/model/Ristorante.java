@@ -7,6 +7,7 @@ public class Ristorante {
 	
 	private int id, capCitta;
 	private String nome, indirizzo, email, pass, telefono, oraAp, oraCh;
+	private Foto [] foto;
 	
 	
 	public int getId() { return id;}
@@ -61,6 +62,11 @@ public class Ristorante {
 		if(!Pattern.matches("([01][0-9]|2[0-3]):[0-5][0-9]",oraCh))
 			throw new RuntimeException("formato ora non valido!");
 		this.oraCh = oraCh;
+	}
+	
+	public Foto [] getFoto() { return foto;}
+	public void setFoto(Foto [] foto) {
+		this.foto = foto;
 	}
 	
 	

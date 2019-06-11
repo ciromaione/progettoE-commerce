@@ -55,14 +55,14 @@ public class Utente {
 	
 	public String getScadCarta() { return scadCarta;}
 	public void setScadCarta(String scadCarta) {
-		if(!Pattern.matches("(0[1-9]|1[0-2)/[12][0-9]",scadCarta))
+		if(!Pattern.matches("(0[1-9]|1[0-2])/[12][0-9]",scadCarta))
 			throw new RuntimeException("formato data di scadenza non valido!");
 		this.scadCarta = scadCarta;
 	}
 	
 	public String getCvv() { return cvv;}
 	public void setCvv(String cvv) {
-		if(Pattern.matches("[0-9]{3}", cvv)) throw new RuntimeException("formato cvv non valido!");
+		if(!Pattern.matches("[0-9]{3}", cvv)) throw new RuntimeException("formato cvv non valido!");
 		this.cvv = cvv;
 	}
 	

@@ -1,0 +1,26 @@
+body{font-family: 'Montserrat', sans-serif;}
+
+p{font-size: 14px;color: #222}
+
+/*
+* HEADER
+*/
+.logo{font-family: 'Henny Penny', cursive;color: #000;display: block;padding: 14px 22px;text-decoration: none;font-weight: bold;font-size: 30px;}
+
+/*
+* FORM
+*/
+* {box-sizing: border-box;}
+.container{width: 40%;padding: 20px;margin: 0 auto;}
+.input-text{display: inline-block;width: 100%;padding:0 10px;height: 38px;margin: 10px 0;font-size: 14px;}
+label,span{color: #222;font-size: 14px;padding:5px;margin-bottom: 5px;}
+span{color: red;display: none;margin-top: -5px;}
+.btn{background-color: #fff;border: solid 2px orangered;color: orangered;font-weight: bold;}
+.btn:hover{background-color: orangered; color: #fff}
+.ristonly{display: none;}
+
+.errclass{border-color: red;}
+
+@media (max-width: 767px){
+    .container{width: 100%;}
+}

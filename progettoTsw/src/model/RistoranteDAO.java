@@ -14,10 +14,10 @@ public class RistoranteDAO {
 			 * STATEMENT PER AGGIUNTA NELLA TABELLA RISTORANTE
 			 */
 			PreparedStatement ps = conn.prepareStatement(""
-					+ "INSERT INTO ristorante (nome, cap_citta, indirizzo, email, pass, telefono, oraAp, oraCh) "
+					+ "INSERT INTO ristorante (nome, citta, indirizzo, email, pass, telefono, oraAp, oraCh) "
 					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setString(1, risto.getNome());
-			ps.setInt(2, risto.getCapCitta());
+			ps.setString(2, risto.getCitta());
 			ps.setString(3, risto.getIndirizzo());
 			ps.setString(4, risto.getEmail());
 			ps.setString(5, risto.getPass());
@@ -48,7 +48,7 @@ public class RistoranteDAO {
 		try (Connection conn = ConnectionPool.getConnection()) {
 			
 			PreparedStatement ps = conn.prepareStatement(""
-					+ "SELECT id, nome, cap_citta, indirizzo, email, pass, telefono, oraAp, oraCh "
+					+ "SELECT id, nome, citta, indirizzo, email, pass, telefono, oraAp, oraCh "
 					+ "FROM ristorante "
 					+ "WHERE id = ?");
 			ps.setInt(1, id);
@@ -57,7 +57,7 @@ public class RistoranteDAO {
 				Ristorante risto = new Ristorante();
 				risto.setId(rs.getInt(1));
 				risto.setNome(rs.getString(2));
-				risto.setCapCitta(rs.getInt(3));
+				risto.setCitta(rs.getString(3));
 				risto.setIndirizzo(rs.getString(4));
 				risto.setEmail(rs.getString(5));
 				risto.setPass(rs.getString(6));

@@ -5,8 +5,8 @@ import java.util.regex.Pattern;
 
 public class Ristorante {
 	
-	private int id, capCitta;
-	private String nome, indirizzo, email, pass, telefono, oraAp, oraCh;
+	private int id;
+	private String nome, citta, indirizzo, email, pass, telefono, oraAp, oraCh;
 	private Foto [] foto;
 	
 	
@@ -20,9 +20,9 @@ public class Ristorante {
 		this.nome = nome;
 	}
 	
-	public int getCapCitta() {	return capCitta;}
-	public void setCapCitta(int capCitta) {
-		this.capCitta = capCitta;
+	public String getCitta() {	return citta;}
+	public void setCitta(String citta) {
+		this.citta = citta;
 	}
 	
 	public String getIndirizzo() { return indirizzo;}

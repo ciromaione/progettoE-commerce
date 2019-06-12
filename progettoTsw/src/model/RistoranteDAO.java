@@ -30,6 +30,7 @@ public class RistoranteDAO {
 			 * STATEMENT PER AGGIUNTA DELLE FOTO NELLA TABELLA FOTO
 			 */
 			Foto [] foto = risto.getFoto();
+			if(foto == null) return;
 			for(Foto f:foto) {
 				ps = conn.prepareStatement("INSERT INTO foto (id, nome, idRisto) "
 						+ "VALUES (?,?,?)");

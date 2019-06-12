@@ -32,7 +32,7 @@ public class Ristorante {
 	
 	public String getEmail() { return email;}
 	public void setEmail(String email) {
-		if(!Pattern.matches("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,4}",email))
+		if(!Pattern.matches("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}",email))
 			throw new RuntimeException("formato email non valido!");
 		this.email = email;
 	}

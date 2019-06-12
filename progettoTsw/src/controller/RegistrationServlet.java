@@ -40,7 +40,12 @@ public class RegistrationServlet extends HttpServlet {
 			if(u == null) goToErrorPage(request, response);
 			else {
 				UtenteDAO ud = new UtenteDAO();
-				ud.doSave(u);
+				try {
+					ud.doSave(u);
+				}
+				catch(RuntimeException e) {
+					goToErrorPage(request, response);
+				}
 			}
 		}
 		else {
@@ -48,7 +53,12 @@ public class RegistrationServlet extends HttpServlet {
 			if(r == null) goToErrorPage(request, response);
 			else {
 				RistoranteDAO rd = new RistoranteDAO();
-				rd.doSave(r);
+				try {
+					rd.doSave(r);
+				}
+				catch(RuntimeException e) {
+					goToErrorPage(request, response);
+				}
 			}
 		}
 		
@@ -80,6 +90,7 @@ public class RegistrationServlet extends HttpServlet {
 			r.setFoto(null);
 		}
 		catch(RuntimeException e) {
+			System.out.print("Eccezzioni: \n\n"+e);
 			return null;
 		}
 		return r;

@@ -18,6 +18,7 @@ span{color: red;display: none;margin-top: -5px;}
 .btn{background-color: #fff;border: solid 2px orangered;color: orangered;font-weight: bold;}
 .btn:hover{background-color: orangered; color: #fff}
 .ristonly{display: none;}
+.input-file{font-size: 14px;margin: 10px 0;color: #222;background-color: #fff;padding: 0 10px;}
 
 .errclass{border-color: red;}
 

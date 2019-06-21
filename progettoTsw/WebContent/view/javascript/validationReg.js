@@ -2,12 +2,12 @@
 $(document).ready(function (){
 
     $('#risto-radio').click(function (){
+      $("label[for='nome']").text("Nome del tuo ristorante");
       $('.ristonly').show();
-      $('.usronly').hide();
     });
     $('#user-radio').click(function (){
+      $("label[for='nome']").text("Nome e Cognome");
       $('.ristonly').hide();
-      $('.usronly').show();
     });
 
     
@@ -51,35 +51,7 @@ $(document).ready(function (){
           $('#orach').addClass("errclass");
         }
       }
-      if($('#user-radio').is(':checked')){
-        if(!testNcarta($('#ncar'))){
-          res = false;
-          $('#errncar').show();
-          $('#ncar').addClass("errclass");
-        }
-        else{
-          $('#errncar').hide();
-          $('#ncar').removeClass("errclass");
-        }
-        if(!testScad($('#scad'))){
-          res = false;
-          $('#errscad').show();
-          $('#scad').addClass("errclass");
-        }
-        else{
-          $('#errscad').hide();
-          $('#scad').removeClass("errclass");
-        }
-        if(!testCvv($('#cvv'))){
-          res = false;
-          $('#errcvv').show();
-          $('#cvv').addClass("errclass");
-        }
-        else{
-          $('#errcvv').hide();
-          $('#cvv').removeClass("errclass");
-        }
-      }
+      
       return res;
     });
 
@@ -100,18 +72,4 @@ $(document).ready(function (){
     if(exp.test(el.val())) return true;
     return false;
   }
-  function testNcarta(el){
-    var exp = /^[0-9]{16}$/;
-    if(exp.test(el.val())) return true;
-    return false;
-  }
-  function testScad(el){
-    var exp = /^(0[1-9]|1[0-2])\/[0-9]{2}$/;
-    if(exp.test(el.val())) return true;
-    return false;
-  }
-  function testCvv(el){
-    var exp =/^[0-9]{3}$/;
-    if(exp.test(el.val())) return true;
-    return false;
-  }
+  

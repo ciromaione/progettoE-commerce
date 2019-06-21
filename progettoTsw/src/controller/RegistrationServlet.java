@@ -106,9 +106,6 @@ public class RegistrationServlet extends HttpServlet {
 			u.setEmail(request.getParameter("email"));
 			u.setPass(request.getParameter("pass"));
 			u.setTelefono(request.getParameter("telefono"));
-			u.setnCarta(request.getParameter("ncar"));
-			u.setScadCarta(request.getParameter("scad"));
-			u.setCvv(request.getParameter("cvv"));
 		}
 		catch(RuntimeException e) {
 			System.out.println(e);

@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 public class Utente {
 	
 	private int id;
-	private String nome, citta, indirizzo, email, pass, telefono, nCarta, scadCarta, cvv;
+	private String nome, citta, indirizzo, email, pass, telefono;
 	
 	public int getId() { return id;}
 	public void setId(int id) {
@@ -47,24 +47,7 @@ public class Utente {
 		this.telefono = telefono;
 	}
 	
-	public String getnCarta() { return nCarta;}
-	public void setnCarta(String nCarta) {
-		if(!Pattern.matches("[0-9]{16}",nCarta)) throw new RuntimeException("formato numero carta non valido!");
-		this.nCarta = nCarta;
-	}
 	
-	public String getScadCarta() { return scadCarta;}
-	public void setScadCarta(String scadCarta) {
-		if(!Pattern.matches("(0[1-9]|1[0-2])/[12][0-9]",scadCarta))
-			throw new RuntimeException("formato data di scadenza non valido!");
-		this.scadCarta = scadCarta;
-	}
-	
-	public String getCvv() { return cvv;}
-	public void setCvv(String cvv) {
-		if(!Pattern.matches("[0-9]{3}", cvv)) throw new RuntimeException("formato cvv non valido!");
-		this.cvv = cvv;
-	}
 	
 	
 

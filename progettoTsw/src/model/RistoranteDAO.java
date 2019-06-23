@@ -27,16 +27,24 @@ public class RistoranteDAO {
 			ps.executeUpdate();
 			
 			/*
+			 * Ricerca id ristorante appena inserito
+			 */
+			ps = conn.prepareStatement("SELECT id FROM ristorante WHERE email = ?");
+			ps.setString(1, risto.getEmail());
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) risto.setId(rs.getInt(1));
+			else throw new RuntimeException();
+			
+			/*
 			 * STATEMENT PER AGGIUNTA DELLE FOTO NELLA TABELLA FOTO
 			 */
-			Foto [] foto = risto.getFoto();
+			String [] foto = risto.getFoto();
 			if(foto == null) return;
-			for(Foto f:foto) {
-				ps = conn.prepareStatement("INSERT INTO foto (id, nome, idRisto) "
-						+ "VALUES (?,?,?)");
-				ps.setInt(1, f.getId());
-				ps.setString(2, f.getNome());
-				ps.setInt(3, f.getIdRisto());
+			for(String f:foto) {
+				ps = conn.prepareStatement("INSERT INTO foto (nome, idRisto) "
+						+ "VALUES (?, ?)");
+				ps.setString(1, f);
+				ps.setInt(2, risto.getId());
 				ps.executeUpdate();
 			}
 			
@@ -67,19 +75,18 @@ public class RistoranteDAO {
 				risto.setOraCh(rs.getString(9));
 				
 				ps = conn.prepareStatement(""
-						+ "SELECT id, nome, idRisto "
+						+ "SELECT nome "
 						+ "FROM foto "
 						+ "WHERE idRisto = ?");
 				ps.setInt(1, risto.getId());
 				rs = ps.executeQuery();
 				rs.last();
-				Foto foto [] = new Foto[rs.getRow()];
+				int size = rs.getRow();
+				String foto [] = new String[size];
 				rs.beforeFirst();
-				for(Foto f:foto) {
+				for(int i = 0; i<size; ++i) {
 					rs.next();
-					f.setId(rs.getInt(1));
-					f.setNome(rs.getString(2));
-					f.setIdRisto(rs.getInt(3));
+					foto[i] = rs.getString(1);
 				}
 				risto.setFoto(foto);
 				

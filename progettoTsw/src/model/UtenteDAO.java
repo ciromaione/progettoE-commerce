@@ -12,15 +12,14 @@ public class UtenteDAO {
 			
 			PreparedStatement ps = conn.prepareStatement(""
 					+ "INSERT INTO utente "
-					+ "(id, nome, citta, indirizzo, email, pass, telefono) "
-					+ "VALUES (?, ?, ?, ?, ?, ?, ?)");
-			ps.setInt(1, u.getId());
-			ps.setString(2, u.getNome());
-			ps.setString(3, u.getCitta());
-			ps.setString(4, u.getIndirizzo());
-			ps.setString(5, u.getEmail());
-			ps.setString(6, u.getPass());
-			ps.setString(7, u.getTelefono());
+					+ "(nome, citta, indirizzo, email, pass, telefono) "
+					+ "VALUES (?, ?, ?, ?, ?, ?)");
+			ps.setString(1, u.getNome());
+			ps.setString(2, u.getCitta());
+			ps.setString(3, u.getIndirizzo());
+			ps.setString(4, u.getEmail());
+			ps.setString(5, u.getPass());
+			ps.setString(6, u.getTelefono());
 			
 			ps.executeUpdate();
 			

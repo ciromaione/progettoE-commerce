@@ -7,7 +7,7 @@ public class Ristorante {
 	
 	private int id;
 	private String nome, citta, indirizzo, email, pass, telefono, oraAp, oraCh;
-	private Foto [] foto;
+	private String [] foto;
 	
 	
 	public int getId() { return id;}
@@ -64,8 +64,8 @@ public class Ristorante {
 		this.oraCh = oraCh;
 	}
 	
-	public Foto [] getFoto() { return foto;}
-	public void setFoto(Foto [] foto) {
+	public String [] getFoto() { return foto;}
+	public void setFoto(String [] foto) {
 		this.foto = foto;
 	}
 	

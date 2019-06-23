@@ -11,10 +11,9 @@ public class OrdineDAO {
 		try (Connection conn = ConnectionPool.getConnection()) {
 			
 			PreparedStatement ps = conn.prepareStatement(""
-					+ "INSERT INTO ordine (id, dataAcq, totale) VALUES (?, ?, ?)");
-			ps.setInt(1, o.getId());
-			ps.setDate(2, o.getDataAcq());
-			ps.setInt(3, o.getTotale());
+					+ "INSERT INTO ordine (dataAcq, totale) VALUES (?, ?)");
+			ps.setDate(1, o.getDataAcq());
+			ps.setInt(2, o.getTotale());
 			
 			ps.executeUpdate();
 			

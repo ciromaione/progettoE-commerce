@@ -22,10 +22,8 @@ public class HomeServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String path = getServletContext().getRealPath("view");
-	    System.out.println("************\n"
-	    		+ path
-	    		+ "\n******************");
+		
+	    
 		
 		RequestDispatcher rs = request.getRequestDispatcher("view/html-jsp/index.html");
 		rs.forward(request, response);

@@ -1,6 +1,5 @@
 
 $(document).ready(function (){
-
     $('#risto-radio').click(function (){
       $("label[for='nome']").text("Nome del tuo ristorante");
       $('.ristonly').show();
@@ -13,6 +12,13 @@ $(document).ready(function (){
     
     $('#reg-form').submit(function (){
       var res = true;
+      var type = "utente";
+      if($('#risto-radio').is(':checked')) type = "ristorante";
+      if(!testEmail(type)){
+        res = false;
+        $('#erremail').show();
+        $('#email').addClass("errclass");
+      }
       if(!testPass()){
         res = false;
         $('#errpass').show();
@@ -31,7 +37,7 @@ $(document).ready(function (){
         $('#errtel').hide();
         $('#telefono').removeClass("errclass");
       }
-      if($('#risto-radio').is(':checked')){
+      if(type == "ristorante"){
         if(!testOra($('#oraap'))){
           res = false;
           $('#erroraap').show();
@@ -57,6 +63,12 @@ $(document).ready(function (){
 
 });
 
+  function testEmail(type){
+    $.get("TestEmail?email="+$('#email').val()+"&type="+type,function (data, status) {
+      if(data == "ok") return true;
+      return false;
+    });
+  }
   function testPass(){
     var str = document.getElementById("pass").value;
     if(str.length >= 8) return true;

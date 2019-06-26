@@ -1,4 +1,4 @@
-
+var ok = false;
 $(document).ready(function (){
     $('#risto-radio').click(function (){
       $("label[for='nome']").text("Nome del tuo ristorante");
@@ -9,15 +9,18 @@ $(document).ready(function (){
       $('.ristonly').hide();
     });
 
-    
     $('#reg-form').submit(function (){
       var res = true;
       var type = "utente";
       if($('#risto-radio').is(':checked')) type = "ristorante";
-      if(!testEmail(type)){
+      if(!ok){
         res = false;
         $('#erremail').show();
         $('#email').addClass("errclass");
+      }
+      else{
+        $('#erremail').hide();
+        $('#email').removeClass("errclass");
       }
       if(!testPass()){
         res = false;
@@ -65,8 +68,10 @@ $(document).ready(function (){
 
   function testEmail(type){
     $.get("TestEmail?email="+$('#email').val()+"&type="+type,function (data, status) {
-      if(data == "ok") return true;
-      return false;
+      if(data == "no") {
+        ok = false;
+      }
+      else ok = true;
     });
   }
   function testPass(){
@@ -83,5 +88,11 @@ $(document).ready(function (){
     var exp = /^([01][0-9]|2[0-3]):[0-5][0-9]$/;
     if(exp.test(el.val())) return true;
     return false;
+  }
+
+  function validaEmail() {
+    var type = "utente";
+    if($('#risto-radio').is(':checked')) type = "ristorante";
+    testEmail(type);
   }
   

@@ -3,6 +3,8 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
@@ -28,15 +30,10 @@ import model.UtenteDAO;
 /**
  * Servlet implementation class RegistrationServlet
  */
-@WebServlet("/Registrazione")
+@WebServlet("/EseguiRegistrazione")
 @MultipartConfig
 public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-   
-    public RegistrationServlet() {
-        super();
-    }
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -75,12 +72,18 @@ public class RegistrationServlet extends HttpServlet {
 			}
 		}
 		
+		RequestDispatcher rd = request.getRequestDispatcher("view/html-jsp/login.jsp");
+		rd.forward(request, response);
+		
 	}
 
 
-	private void goToErrorPage(HttpServletRequest request, HttpServletResponse response) {
-		
-		
+	private void goToErrorPage(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		request.setAttribute("msg", "Non è stato possibile effettuare la registrazione!");
+		request.setAttribute("msglink", "Riprova");
+		request.setAttribute("target", "Registrati");
+		RequestDispatcher rd = request.getRequestDispatcher("view/html-jsp/error.jsp");
+		rd.forward(request, response);
 	}
 
 

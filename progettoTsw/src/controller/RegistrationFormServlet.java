@@ -19,8 +19,13 @@ public class RegistrationFormServlet extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		RequestDispatcher rs = request.getRequestDispatcher("view/html-jsp/registrazione.html");
-		rs.forward(request, response);
+		if(request.getSession().getAttribute("type") == null) {
+			RequestDispatcher rd = request.getRequestDispatcher("view/html-jsp/registrazione.html");
+			rd.forward(request, response);
+		}
+		else {
+			response.sendRedirect("");
+		}
 	}
 
 	

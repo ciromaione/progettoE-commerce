@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +17,7 @@ import model.UtenteDAO;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/Accedi")
+@WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -30,7 +32,9 @@ public class LoginServlet extends HttpServlet {
 			Utente u = ud.doRetriveByEmail(email);
 			if (u == null) returnWError(request, response, "Email non corretta!");
 			else if (u.getPass().equals(pass)) {
-				
+				request.getSession().setAttribute("utente", u);
+				request.getSession().setAttribute("type", type);
+				response.sendRedirect("");
 			}
 			else returnWError(request, response, "Password non corretta!");
 		}
@@ -39,15 +43,19 @@ public class LoginServlet extends HttpServlet {
 			Ristorante r = rd.doRetriveByEmail(email);
 			if (r == null) returnWError(request, response, "Email non corretta!");
 			else if (r.getPass().equals(pass)) {
-				
+				request.getSession().setAttribute("ristorante", r);
+				request.getSession().setAttribute("type", type);
+				response.sendRedirect("");
 			}
 			else returnWError(request, response, "Password non corretta!");
 		}
 		
 	}
 	
-	private void returnWError(HttpServletRequest request, HttpServletResponse response, String msg) {
-		
+	private void returnWError(HttpServletRequest request, HttpServletResponse response, String msg) throws ServletException, IOException {
+		request.setAttribute("errmsg", msg);
+		RequestDispatcher rd = request.getRequestDispatcher("view/html-jsp/login.jsp");
+		rd.forward(request, response);
 	}
 
 	

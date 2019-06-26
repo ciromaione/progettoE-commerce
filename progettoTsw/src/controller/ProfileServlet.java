@@ -3,7 +3,6 @@ package controller;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,20 +10,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class HomeServlet
+ * Servlet implementation class ProfileServlet
  */
-@WebServlet("")
-public class HomeServlet extends HttpServlet {
+@WebServlet("/Profilo")
+public class ProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-   
-
+    
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		RequestDispatcher rd = request.getRequestDispatcher("view/html-jsp/index.html");
-		rd.forward(request, response);
+		if(request.getSession().getAttribute("type") == null) {
+			RequestDispatcher rd = request.getRequestDispatcher("view/html-jsp/login.jsp");
+			rd.forward(request, response);
+		}
+		else {
+			/*
+			 * REDIREZIONE A PAGINA PROFILO
+			 * */
+		}
 	}
 
 	

@@ -17,7 +17,7 @@
     </header>
 
     <section>
-        <form action="Registrazione" method="post" id="reg-form" enctype="multipart/form-data">
+        <form action="EseguiRegistrazione" method="post" id="reg-form" enctype="multipart/form-data">
           <div class="container">
             <h2>Benvenuto!</h2>
             <hr>
@@ -30,7 +30,7 @@
             <label for="nome">Nome e Cognome</label>
             <input type="text" name="nome" id="nome" class="input-text" required>
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" class="input-text" required>
+            <input type="email" name="email" id="email" class="input-text" required oninput="validaEmail()">
             <span id="erremail">Email già presente!</span>
             <label for="pass">Password</label>
             <input type="password" name="pass" id="pass" class="input-text" required>

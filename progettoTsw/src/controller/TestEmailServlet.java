@@ -24,6 +24,7 @@ public class TestEmailServlet extends HttpServlet {
 		
 		String email = request.getParameter("email");
 		String type = request.getParameter("type");
+		System.out.println("**\n\n"+email+"\n"+type+"\n\n*\n");
 		if(type.equals("utente")) {
 			UtenteDAO ud = new UtenteDAO();
 			Utente u = ud.doRetriveByEmail(email);

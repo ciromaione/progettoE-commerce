@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Henny+Penny&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="view/css/style-reg.css">
+   	<%if(request.getAttribute("errmsg") != null) {%>
+   	<style type="text/css">
+   		#err{ display: block;}
+   	</style>
+   	<%} %>
 </head>
 <body>
 
@@ -27,10 +34,9 @@
             <label for="risto-radio">Ristorante</label>
             <label for="email">Email</label>
             <input type="email" name="email" id="email" class="input-text" required>
-            <span id="erremail">Email non corretta!</span>
             <label for="pass">Password</label>
             <input type="password" name="pass" id="pass" class="input-text" required>
-            <span id="errpass">Password non corretta!</span>
+            <span id="err"><%=request.getAttribute("errmsg") %></span>
             <hr>
             <input type="submit" value="Registrati" class="input-text btn">
             <label>Non sei registrato? <a href="Registrati">Registrati</a></label>

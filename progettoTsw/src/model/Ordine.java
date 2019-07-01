@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Ordine {
 
-	private int id, totale;
+	private int id, totale, idUtente;
 	private Date dataAcq;
 	
 	
@@ -21,6 +21,11 @@ public class Ordine {
 	public Date getDataAcq() { return dataAcq;}
 	public void setDataAcq(Date dataAcq) {
 		this.dataAcq = dataAcq;
+	}
+	
+	public int getIdUtente() { return idUtente;}
+	public void setIdUtente(int idUtente) {
+		this.idUtente = idUtente;
 	}
 	
 	

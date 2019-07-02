@@ -31,7 +31,7 @@
             <input type="radio" name="type" id="user-radio" value="utente" checked>
             <label for="user-radio">Utente</label>
             <input type="radio" name="type" id="risto-radio" value="ristorante">
-            <label for="risto-radio">Ristorante</label>
+            <label for="risto-radio">Ristorante</label><br>
             <label for="email">Email</label>
             <input type="email" name="email" id="email" class="input-text" required>
             <label for="pass">Password</label>

@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 			else if (u.getPass().equals(pass)) {
 				request.getSession().setAttribute("utente", u);
 				request.getSession().setAttribute("type", type);
-				response.sendRedirect("");
+				response.sendRedirect(".");
 			}
 			else returnWError(request, response, "Password non corretta!");
 		}
@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
 			else if (r.getPass().equals(pass)) {
 				request.getSession().setAttribute("ristorante", r);
 				request.getSession().setAttribute("type", type);
-				response.sendRedirect("");
+				response.sendRedirect(".");
 			}
 			else returnWError(request, response, "Password non corretta!");
 		}

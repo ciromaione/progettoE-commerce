@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class RistoranteDAO {
 	
@@ -142,6 +143,10 @@ public class RistoranteDAO {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+		return null;
+	}
+
+	public ArrayList<Ristorante> doRetriveByLocationAndCategory(String location, String category) {
 		return null;
 	}
 

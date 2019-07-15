@@ -22,7 +22,6 @@ public class HomeServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
 		RequestDispatcher rd = request.getRequestDispatcher("view/html-jsp/index.html");
 		rd.forward(request, response);
 	}

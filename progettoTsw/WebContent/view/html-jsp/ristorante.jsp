@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ page import="java.util.ArrayList" %>
+    <%@ page import="model.Ristorante" %>
+    <%@ page import="model.Prodotto" %>
+    <%@ page import="model.CategoriaDAO" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +14,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Henny+Penny&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/style-risto.css">
+    <link rel="stylesheet" href="view/css/style.css">
+    <link rel="stylesheet" href="view/css/style-risto.css">
 </head>
 <body>
     <header class="header clearfix">
@@ -45,22 +51,19 @@
     <section class="carousel">
         <!-- Slideshow container -->
         <div class="slideshow-container">
-
-            <!-- Full-width images with number and caption text -->
-            <div class="mySlides fade img" style="background-image: url('../imgRisto/1.jpg')">
-                <div class="filter"></div>
-                <div class="text">Pizzeria Bella Napoli</div>
-            </div>
         
-            <div class="mySlides fade img" style="background-image: url('../imgRisto/2.jpg')">
+            <%
+            Ristorante r = (Ristorante) request.getParameter("ristorante");
+            String foto = r.getFoto();
+            
+            for(String f:foto){
+             %>
+            <div class="mySlides fade img" style="background-image: url('view/imgRisto/<%= f%>')">
                 <div class="filter"></div>
-                <div class="text">Pizzeria Bella Napoli</div>
+                <div class="text"><%= r.getNome() %></div>
             </div>
+            <%} %>
         
-            <div class="mySlides fade img" style="background-image: url('../imgRisto/1.jpg')">
-                <div class="filter"></div>
-                <div class="text">Pizzeria Bella Napoli</div>
-            </div>
         
             <!-- Next and previous buttons -->
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -71,27 +74,43 @@
 
 
     <section class="menu-prodotti">
+    	<%
+    	ArrayList<Prodotto> menu = (ArrayList<Prodotto>)request.getAttribute("menu");
+    	int lastIdCat;
+    	String lastCat = null;
+    	for(Prodotto prod:menu){
+    		if(prod.getIdCat() != lastIdCat) {
+    			lastIdCat = prod.getIdCAt();
+    			lastCat = CategoriaDAO.doRetriveById(lastIdCat);
+    			%>
+    			<h2><%= lastCat %></h2>
+    	<%
+    		}
+    	%>
         <div class="piatto clearfix">
             <div class="testo-piatto">
-                <h4>Pizza</h4>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quidem earum nulla odit, a veniam minus natus quam illo fugiat harum recusandae porro omnis, exercitationem corporis ab quis perspiciatis voluptate.</p>
+                <h4><%= prod.getNome() %></h4>
+                <p><%= prod.getDescrizione() %></p>
             </div>
             <div class="azioni-piatto">
                 <form action="AddProdToCart" method="GET">
-                    € 10,00 
-                    <input type="hidden" value="id" name="id-piatto">
+                    â¬ <%= prod.getPrezzoEuro() %> 
+                    <input type="hidden" value="<%= prod.getId() prod. %>" name="id-piatto">
                     <input type="number" name="quantity" class="quantity" value="1" min="1" max="10">
                     <input type="submit" value="+" class="plus-btn">
                 </form>
             </div>
         </div>
+        <%} %>
 
     </section>
 
 
+	<footer>
+        <p>© 2019 Copyright: <a href>Ristogram.com</a></p>
+    </footer>
 
-
-    <script src="../javascript/jquery.js"></script>
+    <script src="view/javascript/jquery.js"></script>
     <script>
         $(document).ready(function (){
             $('.icon-menu').click(function (e){

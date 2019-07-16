@@ -2,7 +2,9 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ProdottoDAO {
 	
@@ -25,6 +27,41 @@ public class ProdottoDAO {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	public Prodotto doRetriveById(int idProd) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ArrayList<Prodotto> doRetriveMenu(int idRisto) {
+		
+		try (Connection conn = ConnectionPool.getConnection()) {
+			
+			PreparedStatement ps = conn.prepareStatement(""
+					+ "SELECT p.id, p.nome, p.descrizione, p.idCat, p.idRisto, p.prezzoCent "
+					+ "FROM prodotto p "
+					+ "WHERE p.idRisto = ?");
+			ps.setInt(1, idRisto);
+			ResultSet rs = ps.executeQuery();
+			ArrayList<Prodotto> prodotti = new ArrayList<Prodotto>();
+			while(rs.next()) {
+				Prodotto p = new Prodotto();
+				p.setId(rs.getInt(1));
+				p.setNome(rs.getString(2));
+				p.setDescrizione(rs.getString(3));
+				p.setIdCat(rs.getInt(4));
+				p.setIdRisto(rs.getInt(5));
+				p.setPrezzoCent(rs.getInt(6));
+				prodotti.add(p);
+			}
+			return prodotti;
+					
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+		
+		
 	}
 
 }

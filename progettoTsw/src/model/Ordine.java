@@ -1,11 +1,12 @@
 package model;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Ordine {
 
 	private int id, totale, idUtente;
 	private Date dataAcq;
+	
 	
 	
 	public int getId() { return id;}

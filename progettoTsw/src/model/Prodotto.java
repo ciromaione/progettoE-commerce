@@ -22,6 +22,13 @@ public class Prodotto {
 	}
 	
 	public int getPrezzoCent() { return prezzoCent;}
+	public String getPrezzoEuro() {
+		String price = Integer.toString(this.prezzoCent);
+		int size = price.length();
+		if(size == 1) return "0,0"+price;
+		else if(size == 2) return "0,"+price;
+		else return price.substring(0, size-3)+","+price.substring(size-3);
+	}
 	public void setPrezzoCent(int prezzoCent) {
 		this.prezzoCent = prezzoCent;
 	}

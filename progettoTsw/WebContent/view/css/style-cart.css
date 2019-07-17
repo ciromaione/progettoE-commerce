@@ -1,0 +1,105 @@
+button:hover{cursor: pointer;}
+.left-content{
+    float: left;
+    margin: 20px;
+}
+.right-content{
+    float: right;
+    margin: 20px;
+}
+.content{
+    max-width: 1200px;
+    margin: 70px auto;
+}
+.prod-list{
+    padding: 50px;
+    background-color: orange;
+    text-align: center;
+    border-radius: 20px;
+    min-width: 350px;
+}
+.prodotto{
+    padding: 10px 20px;
+    background-color: #eee;
+    border-radius: 20px;
+    margin: 5px;
+}
+.prodotto button{
+    border-color: blue;
+    color: #eee;
+    font-weight: bold;
+    background-color: blue;
+}
+.prod-list h2{
+    color: #eee;
+}
+.acquista-btn{
+    width: 100%;
+    height: 40px;
+    margin-top: 30px;
+    background-color: #eee;
+    color: orange;
+    border-color: #eee;
+    border-style: solid;
+    border-radius: 20px;
+}
+.acquista-btn:hover{
+    background-color: orange;
+    color: #eee;
+    border-color: #eee;
+    cursor: pointer;
+}
+/*
+*LOGIN
+*/
+.login{
+    width: 400px;
+    padding: 20px;
+    background-color: orange;
+    text-align: center;
+    border-radius: 20px;
+    color: #eee;
+    margin: 70px auto;
+}
+hr{border: 1px solid #eee}
+* {box-sizing: border-box;}
+.input-text{display: inline-block;width: 100%;padding:0 10px;height: 38px;margin: 10px 0;font-size: 14px;border: 0;background-color: #eee;}
+label{font-size: 14px;padding:5px;margin-bottom: 5px;}
+.login-btn{
+    width: 100%;
+    height: 38px;
+    margin: 20px 0;
+    background-color: #eee;
+    color: orange;
+    border-color: #eee;
+    border-style: solid;
+}
+.login-btn:hover{
+    background-color: orange;
+    color: #eee;
+    cursor: pointer;
+}
+/*
+*Metodo Di Pagamento
+*/
+.pagamento{
+    width: 250px;
+    text-align: center;
+    color: #eee;
+    margin: 0 auto;
+}
+/*
+* Smartphone
+*/
+@media (max-width: 767px){
+    .left-content,
+    .right-content,
+    .prod-list,
+    .login{
+        width: 96%;
+    }
+    .left-content,
+    .right-content{
+        margin: 2%;
+    }
+}

@@ -14,28 +14,37 @@ import model.ProdottoDAO;
 /**
  * Servlet implementation class AddToCart
  */
-@WebServlet("/AddProdToCart")
-public class AddProdToCart extends HttpServlet {
+@WebServlet("/AddRemToCart")
+public class AddRemToCartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int idProd = Integer.parseInt(request.getParameter("id-piatto"));
-		int quantity = Integer.parseInt(request.getParameter("quantity"));
-		
-		Carrello cart = (Carrello) request.getSession().getAttribute("cart");
-		if(cart == null)
-			cart = new Carrello();
+		String quantity = request.getParameter("quantity");
 		
 		ProdottoDAO pd = new ProdottoDAO();
 		Prodotto p = pd.doRetriveById(idProd);
 		
-		cart.put(p, quantity);
+		Carrello cart = (Carrello) request.getSession().getAttribute("cart");
 		
-		request.getSession().setAttribute("cart", cart);
-		
-		request.getRequestDispatcher("view/html-jsp/ristorante.jsp").forward(request, response);
+		if(quantity == null) {
+			cart.remove(p);
+			request.getSession().setAttribute("cart", cart);
+	
+			request.getRequestDispatcher("view/html-jsp/carrello.jsp").forward(request, response);
+		}
+		else {
+			
+			if(cart == null)
+				cart = new Carrello();
+			cart.put(p, Integer.parseInt(quantity));
+			
+			request.getSession().setAttribute("cart", cart);
+			
+			request.getRequestDispatcher("view/html-jsp/ristorante.jsp").forward(request, response);
+		}
 		
 	}
 

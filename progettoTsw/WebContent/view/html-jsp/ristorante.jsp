@@ -93,8 +93,8 @@
                 <p><%= prod.getDescrizione() %></p>
             </div>
             <div class="azioni-piatto">
-                <form action="AddProdToCart" method="GET">
-                    â¬ <%= prod.getPrezzoEuro() %> 
+                <form action="AddRemToCart" method="GET">
+                    € <%= prod.getPrezzoEuro() %> 
                     <input type="hidden" value="<%= prod.getId() prod. %>" name="id-piatto">
                     <input type="number" name="quantity" class="quantity" value="1" min="1" max="10">
                     <input type="submit" value="+" class="plus-btn">

@@ -10,15 +10,32 @@ import java.util.TreeSet;
 
 public class OrdineDAO {
 	
+	public int doRetriveLastId() {
+		try (Connection conn = ConnectionPool.getConnection()) {
+			
+			PreparedStatement ps = conn.prepareStatement(""
+					+ "SELECT MAX(id) FROM ordine");
+			
+			ResultSet rs = ps.executeQuery();
+			if(rs.next())
+				return rs.getInt(1);
+			else return -1;
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 	public void doSave(Ordine o) {
 		
 		try (Connection conn = ConnectionPool.getConnection()) {
 			
 			PreparedStatement ps = conn.prepareStatement(""
-					+ "INSERT INTO ordine (dataAcq, totale, idUtente) VALUES (?, ?, ?)");
+					+ "INSERT INTO ordine (dataAcq, totale, idUtente, id) VALUES (?, ?, ?, ?)");
 			ps.setDate(1, o.getDataAcq());
 			ps.setInt(2, o.getTotale());
 			ps.setInt(3, o.getIdUtente());
+			ps.setInt(4, o.getId());
 			
 			ps.executeUpdate();
 			

@@ -24,7 +24,7 @@ button:hover{cursor: pointer;}
     border-radius: 20px;
     margin: 5px;
 }
-.prodotto button{
+.btn-rimuovi{
     border-color: blue;
     color: #eee;
     font-weight: bold;

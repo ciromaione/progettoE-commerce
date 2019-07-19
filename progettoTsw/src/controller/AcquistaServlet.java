@@ -56,9 +56,24 @@ public class AcquistaServlet extends HttpServlet {
 				pod.doSave(po);
 			}
 			
+			request.getSession().removeAttribute("cart");
+			
+			request.setAttribute("acquistoEffettuato", true);
+			request.getRequestDispatcher(".").forward(request, response);
 			
 		
 		}
+		else if (request.getSession().getAttribute("type") == null){
+			request.setAttribute("messaggioCarrello", "Non puoi completare l'acquisto senza se non esegui il login!");
+			request.setAttribute("errorCode", 1);
+			
+			
+		}
+		else {
+			request.setAttribute("messaggioCarrello", "Non puoi completare l'acquisto con un account ristorante!");
+			request.setAttribute("errorCode", 2);
+		}
+		request.getRequestDispatcher("view/html-jsp/carrello.jsp").forward(request, response);
 		
 	}
 

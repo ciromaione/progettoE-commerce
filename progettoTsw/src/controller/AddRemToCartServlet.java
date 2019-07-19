@@ -35,7 +35,8 @@ public class AddRemToCartServlet extends HttpServlet {
 		
 		if(quantity == null) {
 			cart.remove(p);
-			request.getSession().setAttribute("cart", cart);
+			if(cart.getProdotti().isEmpty()) request.getSession().removeAttribute("cart");
+			else request.getSession().setAttribute("cart", cart);
 	
 			request.getRequestDispatcher("Carrello").forward(request, response);
 		}

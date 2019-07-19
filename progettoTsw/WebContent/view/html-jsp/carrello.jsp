@@ -35,13 +35,13 @@
         	if(err == 1) {
         	%>
             <div class="login">
-                <form action="">
+                <form action="LoginCarrello" method="post">
                     <h2>Login</h2><hr>
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" class="input-text">
                     <label for="pass">Password</label>
                     <input type="password" name="pass" id="pass" class="input-text">
-                    <button class="login-btn">Accedi</button>
+                    <input type="submit" class="login-btn" value="Accedi">
                 </form>
             </div>
             <%} %>
@@ -78,10 +78,13 @@
                 	<h3>Carta di Credito</h3><hr>
                    	<label for="ncarta">Numero Carta</label>
                     <input type="text" name="ncarta" id="ncarta" class="input-text">
+                    <span class="errncarta">Numero carta non valido!</span>
                     <label for="scad">Scadenza</label>
                     <input type="text" name="scad" id="scad" class="input-text" placeholder="mm/aa">
+                    <span class="errscad">Scadenza carta non valida!</span>
                     <label for="cvv">CVV</label>
                     <input type="text" name="cvv" id="cvv" class="input-text">
+                    <span class="errcvv">CVV non valido!</span>
                 </div>            
                         
                 <a href="Acquista"><button class="acquista-btn">Acquista</button></a>

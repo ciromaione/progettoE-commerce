@@ -89,6 +89,15 @@
         setTimeout(showSlides, 4000); // Change image every 2 seconds
         }
 	</script>
+	<%
+	if(request.getAttribute("acquistoEffettuato") != null){
+	%>
+	<script>
+		$(document).ready(function (){
+			alert("Acquisto completato con successo!");
+		});
+	</script>
+	<%} %>
 
 </body>
 </html>

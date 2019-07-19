@@ -49,6 +49,8 @@ button:hover{cursor: pointer;}
     border-color: #eee;
     cursor: pointer;
 }
+
+span{color: red;display: none;margin-top: -5px;}
 /*
 *LOGIN
 */

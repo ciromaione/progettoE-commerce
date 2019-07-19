@@ -28,9 +28,10 @@ public class ProdottoDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	
 
 	public Prodotto doRetriveById(int idProd) {
-try (Connection conn = ConnectionPool.getConnection()) {
+		try (Connection conn = ConnectionPool.getConnection()) {
 			
 			PreparedStatement ps = conn.prepareStatement(""
 					+ "SELECT id, nome, descrizione, idCat, idRisto, prezzoCent "

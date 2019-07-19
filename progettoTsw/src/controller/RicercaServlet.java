@@ -20,10 +20,10 @@ public class RicercaServlet extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String location = request.getParameter("sb-citta");
-		String category = request.getParameter("sb-text");;
+		
+		String text = request.getParameter("sb-text");;
 		RistoranteDAO rd = new RistoranteDAO();
-		ArrayList<Ristorante> ristoranti = rd.doRetriveByLocationAndCategory(location, category);
+		ArrayList<Ristorante> ristoranti = rd.doRetriveByText(text);
 				
 		request.setAttribute("ristoranti", ristoranti);
 		request.getRequestDispatcher("view/html-jsp/ricerca.jsp").forward(request, response);

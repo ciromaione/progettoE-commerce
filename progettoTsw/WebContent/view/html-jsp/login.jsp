@@ -31,14 +31,14 @@
             <input type="radio" name="type" id="user-radio" value="utente" checked>
             <label for="user-radio">Utente</label>
             <input type="radio" name="type" id="risto-radio" value="ristorante">
-            <label for="risto-radio">Ristorante</label><br>
+            <label for="risto-radio">Ristorante</label><br><br>
             <label for="email">Email</label>
             <input type="email" name="email" id="email" class="input-text" required>
             <label for="pass">Password</label>
             <input type="password" name="pass" id="pass" class="input-text" required>
             <span id="err"><%=request.getAttribute("errmsg") %></span>
             <hr>
-            <input type="submit" value="Registrati" class="input-text btn">
+            <input type="submit" value="Accedi" class="input-text btn">
             <label>Non sei registrato? <a href="Registrati">Registrati</a></label>
           </div>
 

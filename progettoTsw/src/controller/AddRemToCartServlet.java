@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import model.Carrello;
 import model.Prodotto;
 import model.ProdottoDAO;
+import model.Ristorante;
+import model.RistoranteDAO;
 
 /**
  * Servlet implementation class AddToCart
@@ -24,6 +26,8 @@ public class AddRemToCartServlet extends HttpServlet {
 		int idProd = Integer.parseInt(request.getParameter("id-piatto"));
 		String quantity = request.getParameter("quantity");
 		
+		
+		
 		ProdottoDAO pd = new ProdottoDAO();
 		Prodotto p = pd.doRetriveById(idProd);
 		
@@ -33,17 +37,19 @@ public class AddRemToCartServlet extends HttpServlet {
 			cart.remove(p);
 			request.getSession().setAttribute("cart", cart);
 	
-			request.getRequestDispatcher("view/html-jsp/carrello.jsp").forward(request, response);
+			request.getRequestDispatcher("Carrello").forward(request, response);
 		}
 		else {
 			
 			if(cart == null)
 				cart = new Carrello();
+			
 			cart.put(p, Integer.parseInt(quantity));
 			
 			request.getSession().setAttribute("cart", cart);
 			
-			request.getRequestDispatcher("view/html-jsp/ristorante.jsp").forward(request, response);
+			
+			request.getRequestDispatcher("Ristorante?id="+p.getIdRisto()).forward(request, response);
 		}
 		
 	}

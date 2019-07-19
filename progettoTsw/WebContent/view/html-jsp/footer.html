@@ -1,0 +1,28 @@
+	<footer>
+        <p>© 2019 Copyright: <a href=".">Ristogram.com</a></p>
+    </footer>
+
+
+    <script src="view/javascript/jquery.js"></script>
+    <script>
+        $(document).ready(function (){
+            $('.icon-menu').click(function (e){
+                $('.menu').toggleClass('is-open');
+                e.preventDefault();
+            });
+
+            $('#search-icon').click(function (e){
+                openNav();
+                e.preventDefault();
+            });
+        });
+    </script>
+    <script>
+        function openNav() {
+          document.getElementById("myNav").style.height = "100%";
+        }
+        
+        function closeNav() {
+          document.getElementById("myNav").style.height = "0%";
+        }
+    </script>

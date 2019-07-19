@@ -18,43 +18,18 @@
     <link rel="stylesheet" href="view/css/style-risto.css">
 </head>
 <body>
-    <header class="header clearfix">
-        <a href="." class="logo">Ristogram</a>
-        <a href="" class="icon-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </a>
-        <ul class="menu animate">
-            <li class="menu-item"><a href=".">Home</a></li>
-            <li class="menu-item"><a href="">Contatti</a></li>
-            <li class="menu-item"><a href="Profilo">Profilo</a></li>
-            <li class="menu-item menu-item-icon"><a href="" id="search-icon"><img src="view/icons/magnifying-glass.png" alt="ricerca prodotto" height="18px" width="18px"></a></li>
-            <li class="menu-item menu-item-icon"><a href=""><img src="view/icons/shopping-cart.png" alt="carrello prodotti" height="18px" width="18px"></a></li>
-        </ul>
-    </header>
 
-    <div id="myNav" class="overlay">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <div class="overlay-content">
-              <form action="Ricerca" method="get" id="search-form">
-              	  <select id="sb-citta" class="select-search">
-	            	<option value="napoli">Napoli</option>
-	            	<option value="salerno">Salerno</option>
-	        	  </select>
-                  <input type="text" name="sb-text" class="search-input-text" placeholder="ricerca un piatto...">
-                  <input type="image" class="search-input-icon" src="view/icons/magnifying-glass.png">
-              </form>
-        </div>
-    </div>
+    <%@ include file="header.html" %>
+    
+    
 
     <section class="carousel">
         <!-- Slideshow container -->
         <div class="slideshow-container">
         
             <%
-            Ristorante r = (Ristorante) request.getParameter("ristorante");
-            String foto = r.getFoto();
+            Ristorante r = (Ristorante) request.getAttribute("ristorante");
+            String [] foto = r.getFoto();
             
             for(String f:foto){
              %>
@@ -71,16 +46,20 @@
         </div>
         <br>
     </section>
-
+	
+	<section class="desc">
+		<h4><%= r.getCitta()+", "+r.getIndirizzo()+", Tel. "+r.getTelefono() %></h4>
+		<h5><%= "aperto dalle "+r.getOraAp()+" alle "+r.getOraCh() %></h5>
+	</section>
 
     <section class="menu-prodotti">
     	<%
-    	ArrayList<Prodotto> menu = (ArrayList<Prodotto>)request.getAttribute("menu");
-    	int lastIdCat;
+    	ArrayList<Prodotto> menu = (ArrayList<Prodotto>) request.getAttribute("menu");
+    	int lastIdCat = -1;
     	String lastCat = null;
     	for(Prodotto prod:menu){
     		if(prod.getIdCat() != lastIdCat) {
-    			lastIdCat = prod.getIdCAt();
+    			lastIdCat = prod.getIdCat();
     			lastCat = CategoriaDAO.doRetriveById(lastIdCat);
     			%>
     			<h2><%= lastCat %></h2>
@@ -94,8 +73,8 @@
             </div>
             <div class="azioni-piatto">
                 <form action="AddRemToCart" method="GET">
-                    € <%= prod.getPrezzoEuro() %> 
-                    <input type="hidden" value="<%= prod.getId() prod. %>" name="id-piatto">
+                    <%= "€ "+prod.getPrezzoEuro() %> 
+                    <input type="hidden" value="<%= prod.getId() %>" name="id-piatto">
                     <input type="number" name="quantity" class="quantity" value="1" min="1" max="10">
                     <input type="submit" value="+" class="plus-btn">
                 </form>
@@ -106,36 +85,8 @@
     </section>
 
 
-	<footer>
-        <p>© 2019 Copyright: <a href>Ristogram.com</a></p>
-    </footer>
+	<%@ include file="footer.html" %>
 
-    <script src="view/javascript/jquery.js"></script>
-    <script>
-        $(document).ready(function (){
-            $('.icon-menu').click(function (e){
-                $('.menu').toggleClass('is-open');
-                e.preventDefault();
-            });
-
-            $('#search-icon').click(function (e){
-                openNav();
-                e.preventDefault();
-            });
-
-            
-        });
-
-    </script>
-    <script>
-        function openNav() {
-          document.getElementById("myNav").style.height = "100%";
-        }
-        
-        function closeNav() {
-          document.getElementById("myNav").style.height = "0%";
-        }
-    </script>
     <script>
         var slideIndex = 1;
         showSlides(slideIndex);

@@ -16,46 +16,13 @@
     <link rel="stylesheet" href="view/css/style-ricerca.css">
 </head>
 <body>
-    
-    <header class="header clearfix">
-        <a href="." class="logo">Ristogram</a>
-        <a href="" class="icon-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </a>
-        <ul class="menu animate">
-            <li class="menu-item"><a href=".">Home</a></li>
-            <li class="menu-item"><a href="">Contatti</a></li>
-            <li class="menu-item"><a href="Profilo">Profilo</a></li>
-            <li class="menu-item menu-item-icon"><a href="" id="search-icon"><img src="view/icons/magnifying-glass.png" alt="ricerca prodotto" height="18px" width="18px"></a></li>
-            <li class="menu-item menu-item-icon"><a href=""><img src="view/icons/shopping-cart.png" alt="carrello prodotti" height="18px" width="18px"></a></li>
-        </ul>
-    </header>
-
-    <div id="myNav" class="overlay">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <div class="overlay-content">
-              <form action="Ricerca" method="get" id="search-form">
-              	  <select id="sb-citta" class="select-search">
-	            	<option value="napoli">Napoli</option>
-	            	<option value="salerno">Salerno</option>
-	        	  </select>
-                  <input type="text" name="sb-text" class="search-input-text" placeholder="ricerca un piatto...">
-                  <input type="image" class="search-input-icon" src="view/icons/magnifying-glass.png">
-              </form>
-        </div>
-    </div>
-
+   
+    <%@ include file="header.html" %>
     
     
     <div class="searchbar">
     	<form action="Ricerca" method="get">
-	        <select id="sb-citta" class="select" name="sb-citta">
-	            <option value="napoli">Napoli</option>
-	            <option value="salerno">Salerno</option>
-	        </select>
-	        <input type="text" id="sb-text" name="sb-text" placeholder="Cerca piatto ...">
+	        <input type="text" id="sb-text" name="sb-text" placeholder="ricerca un piatto un luogo o un ristorante">
 	        <input type="submit" id="sb-btn" class="btn" value="Cerca">
 	 	</form>
     </div>
@@ -83,33 +50,6 @@
             
     </section>
 
-    <footer>
-        <p>Â© 2019 Copyright: <a href>Ristogram.com</a></p>
-    </footer>
-
-
-    <script src="view/javascript/jquery.js"></script>
-    <script>
-        $(document).ready(function (){
-            $('.icon-menu').click(function (e){
-                $('.menu').toggleClass('is-open');
-                e.preventDefault();
-            });
-
-            $('#search-icon').click(function (e){
-                openNav();
-                e.preventDefault();
-            });
-        });
-    </script>
-    <script>
-        function openNav() {
-          document.getElementById("myNav").style.height = "100%";
-        }
-        
-        function closeNav() {
-          document.getElementById("myNav").style.height = "0%";
-        }
-    </script>
+    <%@ include file="footer.html" %>
 </body>
 </html>

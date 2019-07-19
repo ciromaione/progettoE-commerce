@@ -46,6 +46,13 @@ public class Carrello {
 	}
 	
 	public int getTotale() { return this.totale;}
+	public String getTotaleEuro() { 
+		String price = Integer.toString(this.totale);
+		int size = price.length();
+		if(size == 1) return "0,0"+price;
+		else if(size == 2) return "0,"+price;
+		else return price.substring(0, size-2)+","+price.substring(size-2);
+	}
 	
 
 }

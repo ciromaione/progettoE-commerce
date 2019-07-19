@@ -74,7 +74,7 @@
   to {opacity: 1}
 }
 
-.carousel {margin-top: 80px; padding: 0;width: 100%;}
+.carousel {margin-top: 60px; padding: 0;width: 100%;}
 
 .img {
     width: 100%;
@@ -98,6 +98,10 @@
     height: 400px;
     background-color: #222;
     opacity: 0.5;
+  }
+  
+  .desc{
+  	text-align: center;
   }
 
   .menu-prodotti {max-width: 1200px;margin:auto; }

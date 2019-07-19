@@ -30,8 +30,31 @@ public class ProdottoDAO {
 	}
 
 	public Prodotto doRetriveById(int idProd) {
-		// TODO Auto-generated method stub
-		return null;
+try (Connection conn = ConnectionPool.getConnection()) {
+			
+			PreparedStatement ps = conn.prepareStatement(""
+					+ "SELECT id, nome, descrizione, idCat, idRisto, prezzoCent "
+					+ "FROM prodotto "
+					+ "WHERE id = ?");
+			ps.setInt(1, idProd);
+			
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				Prodotto p = new Prodotto();
+				p.setId(rs.getInt(1));
+				p.setNome(rs.getString(2));
+				p.setDescrizione(rs.getString(3));
+				p.setIdCat(rs.getInt(4));
+				p.setIdRisto(rs.getInt(5));
+				p.setPrezzoCent(rs.getInt(6));
+				
+				return p;
+			}
+			return null;
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	public ArrayList<Prodotto> doRetriveMenu(int idRisto) {

@@ -27,7 +27,7 @@ public class Prodotto {
 		int size = price.length();
 		if(size == 1) return "0,0"+price;
 		else if(size == 2) return "0,"+price;
-		else return price.substring(0, size-3)+","+price.substring(size-3);
+		else return price.substring(0, size-2)+","+price.substring(size-2);
 	}
 	public void setPrezzoCent(int prezzoCent) {
 		this.prezzoCent = prezzoCent;

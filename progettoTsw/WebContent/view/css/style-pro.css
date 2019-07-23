@@ -1,0 +1,90 @@
+.navigator{
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    margin-left: -190px;
+}
+.navigator ul{
+    padding: 60px 40px 20px 40px;
+    font-size: 17px;
+    background-color: #2d572c;
+    border-radius: 40px;
+    width: 300px;
+    margin: 0 auto;
+}
+.navigator ul li{display: inline-block;}
+.nav-item{
+    color: #fff;
+}
+.active{
+    text-decoration: underline;
+}
+a {
+    text-decoration: none;
+}
+.contenuto{
+    max-width: 800px;
+    margin: 120px auto;
+    padding: 20px;
+}
+#dati{
+    margin-bottom: 150px;
+    text-align: center;
+}
+
+
+  .piatto {
+      margin-top: 20px;
+      background-color: #ff6347;
+      padding: 15px;
+      border-radius: 25px;
+      width: 45%;
+      display: inline-block;
+  }
+
+  .testo-piatto {
+      float: left;
+      width: 65%;
+  }
+  .azioni-piatto {
+      float: right;
+      width: 35%;
+      text-align: right;
+      margin-top: 20px;
+      margin-right: 10px;
+  }
+  .menus-btn {
+      background-color: red;
+      color: white;
+      font-weight: bold;
+      border-color: red;
+      border-style: solid;
+  }
+  .menus-btn:hover, a{
+      cursor: pointer;
+  }
+.input-text{display: inline-block;width: 100%;padding:0 10px;height: 38px;margin: 10px 0;font-size: 14px;}
+textarea{width: 100%;padding:0 10px;margin: 10px 0;font-size: 14px;}
+label{color: #222;font-size: 14px;padding:5px;margin-top: 5px;}
+.submit{background-color: #fff;border: solid 2px orangered;color: orangered;font-weight: bold; height: 38px;width: 100%;}
+.submit:hover{background-color: orangered; color: #fff}
+
+#addForm{
+    width: 400px;
+    margin: 0 auto;
+}
+#addForm *{
+    box-sizing: border-box;
+}
+.menu-piatti h2{
+    text-align: center;
+    margin-top: 20px;
+}
+
+  @media (max-width: 767px){
+    .piatto{
+        width: 90%;
+        margin: 20px;
+    }
+  }

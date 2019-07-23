@@ -8,12 +8,12 @@ body{font-family: 'Montserrat', sans-serif;}
 /*
 * HEADER
 */
-.header{background-color: #333;position: fixed;top: 0;width: 100%;z-index: 1;}
+.header{background-color: #2d572c;position: fixed;top: 0;width: 100%;z-index: 1;}
 .logo{font-family: 'Henny Penny', cursive;float: left;color: #fff;display: block;padding: 14px 22px;text-decoration: none;font-weight: bold;font-size: 30px;}
 .menu{float: right;margin: 0;padding: 0;}
 .menu-item{display: inline-block;}
 .menu-item a{color: #fff;display: block;padding: 22px;text-decoration: none;}
-.menu-item a:hover{background-color: #000;}
+.menu-item a:hover{background-color: #244623;}
 .menu-item-icon a{padding-top: 18px;}
 
 .icon-menu{display: block;float: right;padding: 17.5px;display: none;   }
@@ -29,8 +29,8 @@ body{font-family: 'Montserrat', sans-serif;}
     z-index: 2;
     top: 0;
     left: 0;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0, 0.9);
+    background-color: #244623;
+    opacity: 0.9;
     overflow-y: hidden;
     transition: 0.5s;
   }
@@ -74,7 +74,7 @@ body{font-family: 'Montserrat', sans-serif;}
 /*
 * FOOTER
 */
-footer{background-color: #444;padding: 30px;margin-top: 40px;color: #fff;}
+footer{background-color: #ff6347;padding: 30px;margin-top: 40px;color: #fff;}
 
 /*
 * Tablet

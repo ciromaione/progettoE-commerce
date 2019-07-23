@@ -3,7 +3,7 @@ package model;
 public class Categoria {
 
 	private int id;
-	private int nome;
+	private String nome;
 	
 	
 	public int getId() { return id;}
@@ -11,8 +11,8 @@ public class Categoria {
 		this.id = id;
 	}
 	
-	public int getNome() { return nome;}
-	public void setNome(int nome) {
+	public String getNome() { return nome;}
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 	

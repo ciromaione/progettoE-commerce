@@ -18,16 +18,14 @@ public class ProfileServlet extends HttpServlet {
     
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		if(request.getSession().getAttribute("type") == null) {
+		String type = (String) request.getSession().getAttribute("type");
+		if(type == null) {
 			RequestDispatcher rd = request.getRequestDispatcher("view/html-jsp/login.jsp");
 			rd.forward(request, response);
 		}
-		else {
-			/*
-			 * REDIREZIONE A PAGINA PROFILO
-			 * */
-		}
+		else if(type.equals("utente"))
+			request.getRequestDispatcher("view/html-jsp/profiloUser.jsp").forward(request, response);
+		else request.getRequestDispatcher("view/html-jsp/profiloRisto.jsp").forward(request, response);
 	}
 
 	

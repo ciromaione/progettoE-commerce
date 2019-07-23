@@ -7,16 +7,19 @@
     text-align: center;
     color: #333;
     border-style: solid;
+    border-color: #244623;
 }
-.btn, .select {
+.btn {
     width: 10%;
-    color: #333;
+    color: #244623;
     border-radius: 20px;
     height: 40px;
     outline: none;
     border-style: solid;
+    border-color: #244623;
+    background-color: #fff;
 }
-.btn:hover{background-color: #333;color: #fff;}
+.btn:hover{background-color: #244623;color: #fff;}
 
 .select {width: 20%;padding: 10px}
 

@@ -5,9 +5,42 @@ $(document).ready(function (){
     });
 
     
-    $('.acquista-btn').click(function (){
+    $('#formAcq').submit(function (){
+
+        var res = true;
+        if(!$('#check').is(':checked')){
+            if(!testNcarta($('#ncarta'))){
+                res = false;
+                $('#errncarta').show();
+                $('#ncarta').addClass("errclass");
+            }
+            else{
+                $('#errncarta').hide();
+                $('#ncarta').removeClass("errclass");
+            }
+            if(!testScad($('#scad'))){
+                res = false;
+                $('#errscad').show();
+                $('#scad').addClass("errclass");
+            }
+            else{
+                $('#errscad').hide();
+                $('#scad').removeClass("errclass");
+            }
+            if(!testCvv($('#cvv'))){
+                res = false;
+                $('#errcvv').show();
+                $('#cvv').addClass("errclass");
+            }
+            else{
+                $('#errcvv').hide();
+                $('#cvv').removeClass("errclass");
+            }
+        }
+        return res;
 
     });
+
 });
 
 

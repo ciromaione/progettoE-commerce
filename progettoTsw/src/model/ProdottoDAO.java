@@ -13,14 +13,13 @@ public class ProdottoDAO {
 		try (Connection conn = ConnectionPool.getConnection()) {
 			
 			PreparedStatement ps = conn.prepareStatement(""
-					+ "INSERT INTO prodotto (id, nome, descrizione, idCat, idRisto, prezzoCent) "
-					+ "VALUES (?, ?, ?, ?, ?, ?)");
-			ps.setInt(1, p.getId());
-			ps.setString(2, p.getNome());
-			ps.setString(3, p.getDescrizione());
-			ps.setInt(4, p.getIdCat());
-			ps.setInt(5, p.getIdRisto());
-			ps.setInt(6, p.getPrezzoCent());
+					+ "INSERT INTO prodotto (nome, descrizione, idCat, idRisto, prezzoCent) "
+					+ "VALUES (?, ?, ?, ?, ?)");
+			ps.setString(1, p.getNome());
+			ps.setString(2, p.getDescrizione());
+			ps.setInt(3, p.getIdCat());
+			ps.setInt(4, p.getIdRisto());
+			ps.setInt(5, p.getPrezzoCent());
 			
 			ps.executeUpdate();
 			
@@ -85,6 +84,23 @@ public class ProdottoDAO {
 			throw new RuntimeException();
 		}
 		
+		
+	}
+
+
+	public void doRemoveById(int id) {
+
+		try (Connection conn = ConnectionPool.getConnection()) {
+			
+			PreparedStatement ps = conn.prepareStatement(""
+					+ "DELETE FROM prodotto "
+					+ "WHERE id = ?");
+			ps.setInt(1, id);
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 		
 	}
 

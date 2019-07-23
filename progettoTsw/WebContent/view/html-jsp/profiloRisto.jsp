@@ -100,6 +100,7 @@
                 </select>
                 <label for="prezzo">Prezzo</label>
                 <input type="text" name="prezzo" id="prezzo" class="input-text" placeholder="00,00">
+                <div class="errPrezzo">Formato prezzo non valido!</div>
                 <input type="hidden" name="idRisto" value="<%= risto.getId() %>">
                 <input type="submit" value="Aggiungi" class="submit" name="submit">
             </form>
@@ -127,9 +128,22 @@
                 window.scrollTo(0,0);
             });
 
-
+            $('#addForm').submit(function (){
+                if(!testPrezzo()){
+                    $('#prezzo').css("border-color", "red");
+                    $('errPrezzo').show();
+                    return false;
+                }
+                return true;
+            });
 
         });
+
+        function testPrezzo(){
+            var exp = /^[1-9][0-9]*(,|\.)[0-9]{2}$/;
+            if(exp.test($('#prezzo').val())) return true;
+            return false;
+        }
     </script>
     
 </body>

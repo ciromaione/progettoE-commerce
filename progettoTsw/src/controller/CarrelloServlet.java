@@ -24,7 +24,7 @@ public class CarrelloServlet extends HttpServlet {
 			messaggioCarrello = "Effettua il login per completare l'acquisto!";
 			errorCode = 1;
 		}
-		else if(type == "ristorante") {
+		else if(type.equals("ristorante")) {
 			messaggioCarrello = "Stai usando un account 'Ristorante', accedi come 'Utente' per completare l'acquisto!";
 			errorCode = 2;
 		}

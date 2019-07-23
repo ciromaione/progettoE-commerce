@@ -25,17 +25,17 @@
 
             <div class="mySlides fade img" style="background-image: url('view/img/imgCarousel1.jpg')">
                 <div class="filter"></div>
-                <div class="text">Caption Text</div>
+                <div class="text">Acquista Cibo</div>
             </div>
 
             <div class="mySlides fade img" style="background-image: url('view/img/imgCarousel2.jpg')">
                 <div class="filter"></div>
-                <div class="text">Caption Text</div>
+                <div class="text">Vendi i tuoi prodotti</div>
             </div>
 
             <div class="mySlides fade img" style="background-image: url('view/img/imgCarousel3.jpg')">
                 <div class="filter"></div>
-                <div class="text">Caption Text</div>
+                <div class="text">Entra a far parte della nostra community!</div>
             </div>
             
         </div>

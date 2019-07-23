@@ -79,13 +79,13 @@
                         <h3>Carta di Credito</h3><hr>
                         <label for="ncarta">Numero Carta</label>
                         <input type="text" name="ncarta" id="ncarta" class="input-text">
-                        <span id="errncarta">Numero carta non valido!</span>
+                        <span id="errncarta" class="err">Numero carta non valido!</span>
                         <label for="scad">Scadenza</label>
                         <input type="text" name="scad" id="scad" class="input-text" placeholder="mm/aa">
-                        <span id="errscad">Scadenza carta non valida!</span>
+                        <span id="errscad" class="err">Scadenza carta non valida!</span>
                         <label for="cvv">CVV</label>
                         <input type="text" name="cvv" id="cvv" class="input-text">
-                        <span id="errcvv">CVV non valido!</span>
+                        <span id="errcvv" class="err">CVV non valido!</span>
                     </div>            
                             
                     <input type="submit" class="acquista-btn" value="Acquista">

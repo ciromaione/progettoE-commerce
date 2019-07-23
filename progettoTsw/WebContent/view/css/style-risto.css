@@ -104,7 +104,7 @@
   	text-align: center;
   }
 
-  .menu-prodotti {max-width: 1200px;margin:auto; }
+  .menu-prodotti {max-width: 1200px;margin:auto; padding: 10px;}
 
   .piatto {
       margin-top: 20px;

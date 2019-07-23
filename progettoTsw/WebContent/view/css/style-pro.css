@@ -82,9 +82,19 @@ label{color: #222;font-size: 14px;padding:5px;margin-top: 5px;}
     margin-top: 20px;
 }
 
+.errPrezzo{
+    color: red;
+    font-size: 14px;
+    display: none;
+}
+
   @media (max-width: 767px){
     .piatto{
         width: 90%;
-        margin: 20px;
+        padding: 20px;
+    }
+    #addForm{
+        width: 100%;
+        padding: 10px;
     }
   }

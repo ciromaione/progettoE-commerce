@@ -100,3 +100,12 @@
     display: inline-block;
     margin: 15px 10px;
 }
+
+@media (max-width: 767px){
+	.result-item {
+		width: 90%;
+	}
+	.img{
+		height: 350px;
+	}
+}

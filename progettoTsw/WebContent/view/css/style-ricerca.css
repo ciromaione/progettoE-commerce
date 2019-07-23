@@ -31,16 +31,25 @@
 .result-item {
     width: 25%;
     display: inline-block;
-    margin: 15px 10px;
+    padding: 15px 10px;
 }
 
+#cercaBTN{
+    display: none;
+    margin: 0 auto;
+}
 @media (max-width: 767px){
 
-    .searchbar{width: 95%}
+    .searchbar{width: 90%}
     #sb-text{width: 75%}
     .select{width: 100%;margin-bottom: 20px}
     .btn{width: 20%}
 
     .result-item {width: 100%}
     .container{width: 80%}
+
+    #formRicerca{display: none;}
+    #cercaBTN{
+        display: block;
+    }
 }

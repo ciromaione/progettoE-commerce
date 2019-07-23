@@ -21,10 +21,11 @@
     
     
     <div class="searchbar">
-    	<form action="Ricerca" method="get">
+    	<form action="Ricerca" method="get" id="formRicerca">
 	        <input type="text" id="sb-text" name="sb-text" placeholder="ricerca un piatto un luogo o un ristorante">
 	        <input type="submit" id="sb-btn" class="btn" value="Cerca">
-	 	</form>
+         </form>
+         <button id="cercaBTN" class="btn">Cerca</button>
     </div>
 
     <section class="container">
@@ -51,5 +52,12 @@
     </section>
 
     <%@ include file="footer.html" %>
+
+    <script>
+        $('#cercaBTN').click(function (e){
+                openNav();
+                e.preventDefault();
+        });
+    </script>
 </body>
 </html>

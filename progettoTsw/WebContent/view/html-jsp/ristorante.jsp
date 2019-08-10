@@ -62,7 +62,7 @@
     			lastIdCat = prod.getIdCat();
     			lastCat = CategoriaDAO.doRetriveById(lastIdCat);
     			%>
-    			<h2><%= lastCat %></h2>
+    			<h2><%= lastCat.toUpperCase() %></h2>
     	<%
     		}
     	%>
@@ -75,7 +75,7 @@
                 <form action="AddRemToCart" method="GET">
                     <%= "€ "+prod.getPrezzoEuro() %> 
                     <input type="hidden" value="<%= prod.getId() %>" name="id-piatto">
-                    <input type="number" name="quantity" class="quantity" value="1" min="1" max="10">
+                    <input type="number" name="quantity" class="quantity" value="1" min="1" max="10" required>
                     <input type="submit" value="+" class="plus-btn">
                 </form>
             </div>

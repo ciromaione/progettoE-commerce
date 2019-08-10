@@ -28,17 +28,17 @@
             <label for="risto-radio">Ristorante</label>
             <hr>
             <label for="nome">Nome e Cognome</label>
-            <input type="text" name="nome" id="nome" class="input-text" required>
+            <input type="text" name="nome" id="nome" class="input-text" required maxlength="25">
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" class="input-text" required oninput="validaEmail()">
+            <input type="email" name="email" id="email" class="input-text" required oninput="validaEmail()" maxlength="25">
             <span id="erremail">Email già presente!</span>
             <label for="pass">Password</label>
-            <input type="password" name="pass" id="pass" class="input-text" required>
+            <input type="password" name="pass" id="pass" class="input-text" required maxlength="15">
             <span id="errpass">Password troppo corta!</span>
             <label for="citta">Città</label>
-            <input type="text" name="citta" id="citta" class="input-text" required>
+            <input type="text" name="citta" id="citta" class="input-text" required maxlength="30">
             <label for="indirizzo">Indirizzo</label>
-            <input type="text" name="indirizzo" id="indirizzo" class="input-text" required>
+            <input type="text" name="indirizzo" id="indirizzo" class="input-text" required maxlength="30">
             <label for="telefono">Telefono</label>
             <input type="text" name="telefono" id="telefono" class="input-text" required>
             <span id="errtel">Telefono non valido!</span>

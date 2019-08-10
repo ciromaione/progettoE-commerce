@@ -86,7 +86,7 @@
             <h2>Aggiungi Piatto</h2>
             <form action="AddRemToMenu" method="POST" id="addForm">
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" class="input-text">
+                <input type="text" name="nome" id="nome" class="input-text" required maxlength="50">
                 <label for="desc">Descrizione</label>
                 <textarea name="desc" id="desc" rows="5" style="width: 100%"></textarea>
                 <label for="cat">Categoria</label>
@@ -131,7 +131,7 @@
             $('#addForm').submit(function (){
                 if(!testPrezzo()){
                     $('#prezzo').css("border-color", "red");
-                    $('errPrezzo').show();
+                    $('.errPrezzo').show();
                     return false;
                 }
                 return true;
